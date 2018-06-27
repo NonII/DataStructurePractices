@@ -14,7 +14,7 @@ struct {
     void(*insert)(singly_linked_list, int, int);
     void(*insert_head)(singly_linked_list, int);
     void(*insert_tail)(singly_linked_list, int);
-    int(*delete_element)(singly_linked_list, int);
+    void(*delete_element)(singly_linked_list, int);
     void(*traverse_list)(singly_linked_list, void(*)(int));
     void(*clear)(singly_linked_list);
     void(*destroy)(singly_linked_list*);

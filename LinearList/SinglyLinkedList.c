@@ -13,7 +13,7 @@ int DSFUNC(get_element)(singly_linked_list, int);
 void DSFUNC(insert)(singly_linked_list, int, int);
 void DSFUNC(insert_head)(singly_linked_list, int);
 void DSFUNC(insert_tail)(singly_linked_list, int);
-int DSFUNC(delete_element)(singly_linked_list, int);
+void DSFUNC(delete_element)(singly_linked_list, int);
 void DSFUNC(traverse_list)(singly_linked_list, void(*)(int));
 void DSFUNC(clear)(singly_linked_list);
 void DSFUNC(destroy)(singly_linked_list*);
@@ -97,15 +97,41 @@ void DSFUNC(insert)(singly_linked_list list, int position, int value) {
 }
 
 void DSFUNC(insert_head)(singly_linked_list list, int value) {
+    if (list == NULL) { return; }
 
+    singly_linked_list_node* new_node = (singly_linked_list_node*)calloc(1, sizeof(singly_linked_list_node));
+    new_node->data = value;
+    new_node->next = list->next;
+    list->next = new_node;
 }
 
 void DSFUNC(insert_tail)(singly_linked_list list, int value) {
+    if (list == NULL) { return; }
 
+    singly_linked_list_node* new_node = (singly_linked_list_node*)calloc(1, sizeof(singly_linked_list_node));
+    new_node->data = value;
+
+    singly_linked_list_node* current = list;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    current->next = new_node;
 }
 
-int DSFUNC(delete_element)(singly_linked_list list, int index) {
+void DSFUNC(delete_element)(singly_linked_list list, int index) {
+    if (list == NULL) { return; }
 
+    singly_linked_list_node* current = list;
+    int current_index = 0;
+    while (current->next != NULL) {
+        if (current_index++ == index) {
+            singly_linked_list_node* next = current->next->next;
+            free(current->next);
+            current->next = next;
+            return;
+        }
+        current = current->next;
+    }
 }
 
 void DSFUNC(traverse_list)(singly_linked_list list, void(*traverse_func)(int)) {
@@ -119,7 +145,15 @@ void DSFUNC(traverse_list)(singly_linked_list list, void(*traverse_func)(int)) {
 }
 
 void DSFUNC(clear)(singly_linked_list list) {
+    if (list == NULL) { return; }
 
+    singly_linked_list_node* current = list->next;
+
+    while (current != NULL) {
+        list->next = current->next;
+        free(current);
+        current = list->next;
+    }
 }
 
 void DSFUNC(destroy)(singly_linked_list* plist) {
@@ -138,5 +172,14 @@ void DSFUNC(destroy)(singly_linked_list* plist) {
 }
 
 void DSFUNC(inplace_revert)(singly_linked_list list) {
+    if (list == NULL) { return; }
 
+    singly_linked_list_node* current = list->next;
+    list->next = NULL;
+    while (current != NULL) {
+        singly_linked_list_node* next = current->next;
+        current->next = list->next;
+        list->next = current;
+        current = next;
+    }
 }
