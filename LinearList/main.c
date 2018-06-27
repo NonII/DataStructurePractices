@@ -1,18 +1,18 @@
 
-#include "SinglyLinkedList.h"
+#include "slist.h"
 
 #include <stdio.h>
 
 void print_data(int data) { printf("%d\t", data); }
 
-#define INIT_DSOPR init_singly_linked_list_operations
-#define DSOPR(opr) singly_linked_list_operation_set.opr
+#define INIT_DSOPR init_slist_operations
+#define DSOPR(opr) slist_operation_set.opr
 
 int main(int argc, const char* argv[]) {
 
     INIT_DSOPR();
 
-    singly_linked_list list = singly_linked_list_operation_set.create();
+    slist list = slist_operation_set.create();
 
     DSOPR(insert)(list, 0, 233);
     DSOPR(insert)(list, 1, 234);
@@ -78,7 +78,7 @@ int main(int argc, const char* argv[]) {
 
     printf("\n*************************************************************\n");
 
-    singly_linked_list_operation_set.destroy(&list);
+    slist_operation_set.destroy(&list);
 
     getchar();
 
