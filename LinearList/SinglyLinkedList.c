@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #define DSFUNC(func) singly_linked_list_func_##func
-#define INIT_DSFUNC(func) singly_linked_list_operation_set.##func = DSFUNC(func)
+#define INIT_DSFUNC(func) singly_linked_list_operation_set.func = DSFUNC(func)
 
 singly_linked_list DSFUNC(create)(void);
 int DSFUNC(get_length)(singly_linked_list);

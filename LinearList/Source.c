@@ -6,7 +6,7 @@
 void print_data(int data) { printf("%d\t", data); }
 
 #define INIT_DSOPR init_singly_linked_list_operations
-#define DSOPR(opr) singly_linked_list_operation_set.##opr
+#define DSOPR(opr) singly_linked_list_operation_set.opr
 
 int main(int argc, const char* argv[]) {
 
