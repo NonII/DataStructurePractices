@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="array.c" />
     <ClCompile Include="slist.c" />
     <ClCompile Include="main.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
@@ -128,7 +129,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="array.h" />
+    <ClInclude Include="dlist.h" />
+    <ClInclude Include="dqueue.h" />
+    <ClInclude Include="lqueue.h" />
+    <ClInclude Include="lstack.h" />
+    <ClInclude Include="rlist.h" />
+    <ClInclude Include="rqueue.h" />
     <ClInclude Include="slist.h" />
+    <ClInclude Include="squeue.h" />
+    <ClInclude Include="sstack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

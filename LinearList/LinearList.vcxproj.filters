@@ -21,9 +21,39 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="array.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="slist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sstack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lstack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="squeue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dqueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
